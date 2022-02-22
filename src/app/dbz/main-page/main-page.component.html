@@ -7,9 +7,10 @@
         <h3>Personajes</h3>
         <hr>
         <ol>
-            <li>Krillin - 1200</li>
-            <li>Gokú - 1900</li>
-            <li>Vegeta - 1800</li>
+            <li *ngFor="let per of personajes">
+                <!-- Pipe sirve para transformar visualmente la información -->
+                {{ per.nombre }} - {{ per.poder | number}}
+            </li>
         </ol>
     </div>
 

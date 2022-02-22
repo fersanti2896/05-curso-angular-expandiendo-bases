@@ -10,12 +10,33 @@ interface Personaje {
   templateUrl: './main-page.component.html'
 })
 export class MainPageComponent {
+  personajes: Personaje[] = [
+    {
+      nombre: 'Gokú',
+      poder: 180000
+    },
+    {
+      nombre: 'Vegeta',
+      poder: 60000
+    }
+  ];
   nuevo: Personaje = {
-    nombre: 'Frezeer',
-    poder: 1000000
+    nombre: '',
+    poder: 0
   }
 
   agregar() {
-    console.log(this.nuevo);
+    if(this.nuevo.nombre.trim().length === 0) {
+      return;
+    }
+
+    /* Agrega el nuevo personaje al arreglo */
+    this.personajes.push(this.nuevo);
+    
+    /* Se reinicia el objeto personaje a valores predeterminados */
+    this.nuevo = {
+      nombre: '',
+      poder: 0
+    }
   }
 }
