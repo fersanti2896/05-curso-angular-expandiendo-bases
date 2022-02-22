@@ -16,23 +16,10 @@ export class MainPageComponent {
       poder: 60000
     }
   ];
+
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0
+    nombre: 'Picoro',
+    poder: 100000
   }
-
-  agregar() {
-    if(this.nuevo.nombre.trim().length === 0) {
-      return;
-    }
-
-    /* Agrega el nuevo personaje al arreglo */
-    this.personajes.push(this.nuevo);
-
-    /* Se reinicia el objeto personaje a valores predeterminados */
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    }
-  }
+  
 }
