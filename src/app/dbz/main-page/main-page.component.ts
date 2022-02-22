@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Personaje {
-  nombre: string,
-  poder: number
-}
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -32,7 +28,7 @@ export class MainPageComponent {
 
     /* Agrega el nuevo personaje al arreglo */
     this.personajes.push(this.nuevo);
-    
+
     /* Se reinicia el objeto personaje a valores predeterminados */
     this.nuevo = {
       nombre: '',
