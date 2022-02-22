@@ -7,27 +7,21 @@ import { DbzService } from '../services/dbz.service';
   templateUrl: './main-page.component.html'
 })
 export class MainPageComponent {
-  personajes: Personaje[] = [
-    {
-      nombre: 'Gokú',
-      poder: 180000
-    },
-    {
-      nombre: 'Vegeta',
-      poder: 60000
-    }
-  ];
-
   nuevo: Personaje = {
     nombre: 'Picoro',
     poder: 100000
   }
+
+  /* get personajes(): Personaje[] {
+    return this.dbzService.personajes;
+  } */
   
-  agregarNuevoPersonaje(argumento: Personaje) {
+  /* agregarNuevoPersonaje(argumento: Personaje) {
     // debugger; Nos ayuda a la depuración
     this.personajes.push(argumento);
-  }
+  } */
 
   /* Hacemos una inyección de dependencia, en este caso del servicio */
-  constructor(private dbzService: DbzService) { }
+  // constructor(private dbzService: DbzService) { }
+  constructor() { }
 }

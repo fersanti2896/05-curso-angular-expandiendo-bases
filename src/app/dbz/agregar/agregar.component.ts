@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-agregar',
@@ -11,8 +12,12 @@ export class AgregarComponent {
     poder: 0
   }
 
+  constructor(private dbzService: DbzService) {
+
+  }
+
   /* Output sirve para emitir eventos, en este caso de tipo Personaje */
-  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
+  // @Output() onNuev0oPersonaje: EventEmitter<Personaje> = new EventEmitter();
   
   agregar() {
     if(this.nuevo.nombre.trim().length === 0) {
@@ -20,10 +25,13 @@ export class AgregarComponent {
     }
 
     /* Aquí se emite al componente padre */
-    this.onNuevoPersonaje.emit(this.nuevo);
+    // this.onNuevoPersonaje.emit(this.nuevo);
     
     /* Agrega el nuevo personaje al arreglo */
     // this.personajes.push(this.nuevo);
+
+    /* Aqui ya agregamos el service */
+    this.dbzService.agregarPersonaje(this.nuevo);
 
     /* Se reinicia el objeto personaje a valores predeterminados */
     this.nuevo = {
